@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import useLocalStorage from "../hooks/useLocalStorage";
 import logo from "../assets/eportal.png";
-import axios from "axios";
-import instance from "../lib/axios";
+import { instance } from "../lib/axios";
 import requests from "../Requests";
-
+import { useDispatch } from "react-redux";
+import { userActions } from "../store/user";
 const Login = () => {
   const [empId, setEmpId] = useState("");
   const [password, setPassword] = useState("");
-  // const dispatch = useDispatch();
+  // const [storageUser, setStorageUser] = useLocalStorage("empID");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleEmpIdChange = (e) => {
     setEmpId(e.target.value);
   };
@@ -22,12 +25,18 @@ const Login = () => {
     e.preventDefault();
     const data = { empId, password };
 
-    instance
-      .post(requests.requestLogin, data)
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((e) => console.error(e));
+    const loginUser = async () => {
+      try {
+        const csrf = await instance.get(requests.requestCsrf);
+        const response = await instance.post(requests.requestLogin, data);
+        dispatch(userActions.initUser(response.data));
+        // setStorageUser(response.data.user.EmpID);
+        navigate("/");
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    loginUser();
   };
 
   return (
