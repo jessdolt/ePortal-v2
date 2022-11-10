@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Explore from "../pages/Explore";
 import Notification from "../pages/Notification";
 import Messages from "../pages/Messages";
+import Login from "./Login";
+import ProtectedRoute from "../routes/ProtectedRoute";
 
 const PageComponents = () => {
   return (
