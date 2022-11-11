@@ -13,6 +13,7 @@ import { instance } from "../../lib/axios";
 import requests from "../../Requests";
 import { userActions } from "../../store/user";
 import { NormalizeText } from "../../utils/NormalizeText";
+import { logOutUser } from "../../services/AuthServices";
 
 const NavbarDrawer = ({ open, onClose }) => {
   const { user, token } = useSelector((state) => state.user);
@@ -20,21 +21,22 @@ const NavbarDrawer = ({ open, onClose }) => {
   const navigate = useNavigate();
   const handleLogout = (e) => {
     e.preventDefault();
-    instance
-      .post(
-        requests.requestLogout,
-        {},
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((res) => {
-        console.log(user);
-        if (res.status == 200) {
-          dispatch(userActions.userDestroy());
-          navigate("/login");
-        }
-      });
+    logOutUser(token, dispatch, navigate);
+    // instance
+    //   .post(
+    //     requests.requestLogout,
+    //     {},
+    //     {
+    //       headers: { Authorization: `Bearer ${token}` },
+    //     }
+    //   )
+    //   .then((res) => {
+    //     console.log(user);
+    //     if (res.status == 200) {
+    //       dispatch(userActions.userDestroy());
+    //       navigate("/login");
+    //     }
+    //   });
   };
   return (
     <div

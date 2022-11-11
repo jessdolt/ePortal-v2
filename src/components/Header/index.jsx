@@ -8,8 +8,8 @@ const Header = ({ title = "Home" }) => {
 
   return (
     <>
-      <header className="min-h-[53px] flex px-4 items-center fixed w-full bg-white">
-        <div className="min-w-[52px] max-w-[52px] mr-1">
+      <header className="min-h-[53px] flex px-4 items-center fixed w-full max-w-[600px] bg-white">
+        <div className="min-w-[52px] sm:hidden max-w-[52px] mr-1">
           <img
             src={meImg}
             alt=""
@@ -20,6 +20,19 @@ const Header = ({ title = "Home" }) => {
         <h3 className="font-bold text-xl">{title}</h3>
       </header>
 
+      {/* <div className="hidden mt-[60px] px-4 sm:flex w-full">
+        <div className="min-w-[52px] max-w-[52px] mr-1">
+          <img
+            src={meImg}
+            alt=""
+            className="h-[50px] w-[50px] rounded-full object-fit cursor-pointer "
+            onClick={() => setOpen(true)}
+          />
+        </div>
+        <div className="flex-1 py-2 bg-red-300">
+          <div className="overflow-hidden ">What's Happening</div>
+        </div>
+      </div> */}
       <NavbarDrawer open={open} onClose={setOpen} />
     </>
   );

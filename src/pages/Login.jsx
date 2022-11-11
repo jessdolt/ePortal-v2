@@ -5,11 +5,10 @@ import logo from "../assets/eportal.png";
 import { instance } from "../lib/axios";
 import requests from "../Requests";
 import { useDispatch } from "react-redux";
-import { userActions } from "../store/user";
+import { signInUser } from "../services/AuthServices";
 const Login = () => {
   const [empId, setEmpId] = useState("");
   const [password, setPassword] = useState("");
-  // const [storageUser, setStorageUser] = useLocalStorage("empID");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -27,11 +26,13 @@ const Login = () => {
 
     const loginUser = async () => {
       try {
-        const csrf = await instance.get(requests.requestCsrf);
-        const response = await instance.post(requests.requestLogin, data);
-        dispatch(userActions.initUser(response.data));
-        // setStorageUser(response.data.user.EmpID);
-        navigate("/");
+        // const csrf = await instance.get(requests.requestCsrf);
+        // const response = await instance.post(requests.requestLogin, data);
+        // dispatch(userActions.initUser(response.data));
+        // setStorageUser(JSON.stringify(response.data.user.EmpID));
+        // setStorageToken(JSON.stringify(response.data.token));
+
+        signInUser(data, dispatch, navigate);
       } catch (error) {
         console.error(error);
       }

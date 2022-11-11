@@ -11,30 +11,15 @@ import useLocalStorage from "./hooks/useLocalStorage.jsx";
 import { instance } from "./lib/axios.js";
 import requests from "./Requests.js";
 import { userActions } from "./store/user.jsx";
+import { checkAutoLogin } from "./services/AuthServices.js";
 
 function App() {
   const user = useSelector((state) => state.user);
-  // const [storedUser, setStoredUser] = useLocalStorage("empID");
-  // const [storedToken, setStoredToken] = useLocalStorage("token");
-  // console.log(storedToken);
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
-  // useEffect(() => {
-  //   if (storedUser) {
-  //     instance
-  //       .get(`${requests.singleEmployee}/${storedUser}`)
-  //       .then((response) => {
-  //         dispatch(
-  //           userActions.initUser({
-  //             user: response.data,
-  //             token: "85|0tC0Ipfu9MyUfFlLBDj9EHu6TTha38VpwDgL7nPO",
-  //           })
-  //         );
-  //         navigate("/");
-  //       });
-  //   }
-  // }, []);
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  useEffect(() => {
+    checkAutoLogin(dispatch, navigate);
+  }, []);
   return (
     <>
       <Routes>
