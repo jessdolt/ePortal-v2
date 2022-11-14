@@ -8,7 +8,7 @@ const Header = ({ title = "Home" }) => {
 
   return (
     <>
-      <header className="min-h-[53px] flex px-4 items-center fixed w-full max-w-[600px] bg-white">
+      <header className="min-h-[53px] flex px-4 items-center fixed w-full max-w-[598px] bg-white">
         <div className="min-w-[52px] sm:hidden max-w-[52px] mr-1">
           <img
             src={meImg}

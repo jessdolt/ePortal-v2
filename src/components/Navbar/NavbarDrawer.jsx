@@ -111,7 +111,7 @@ const NavbarDrawer = ({ open, onClose }) => {
           </Dropdown>
           <div className="p-4">
             <button
-              className="p-4 bg-green-600 w-full rounded-3xl text-white mt-auto"
+              className="p-4 bg-green-500 w-full rounded-3xl text-white mt-auto"
               onClick={handleLogout}
             >
               Logout

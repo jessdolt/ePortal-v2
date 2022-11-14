@@ -35,7 +35,7 @@ const Footer = () => {
   ));
 
   return (
-    <nav className="max-h-[16vh] min-h-[53px] w-full flex fixed bottom-0 md:hidden bg-white justify-center items-center border-t">
+    <nav className="max-h-[16vh] min-h-[53px] w-full flex fixed bottom-0 sm:hidden bg-white justify-center items-center border-t">
       {NavLists}
       {/* <NavLink
         to="/"

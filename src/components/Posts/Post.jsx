@@ -6,7 +6,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import IosShareOutlinedIcon from "@mui/icons-material/IosShareOutlined";
 const Post = () => {
   return (
-    <div className="px-4 flex">
+    <div className="p-4 flex text-[15px] cursor-pointer hover:bg-slate-100 duration-150 border-t border-gray-100">
       <div className="mr-3 shrink-0">
         <img src={meImg} alt="" className="h-[50px] w-[50px] rounded-full" />
       </div>
