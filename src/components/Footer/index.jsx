@@ -7,7 +7,7 @@ import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   const normalState = "flex-1";
-  const activeClassName = "flex-1 text-green-600";
+  const activeClassName = "flex-1 text-accent";
 
   const data = [
     { link: "/", icon: <RiHome7Fill className="max-h-7 text-2xl mx-auto" /> },
@@ -35,7 +35,7 @@ const Footer = () => {
   ));
 
   return (
-    <nav className="max-h-[16vh] min-h-[53px] w-full flex fixed bottom-0 sm:hidden bg-white justify-center items-center border-t">
+    <nav className="max-h-[16vh] min-h-[53px] w-full flex fixed bottom-0 sm:hidden bg-white dark:bg-dark justify-center items-center ">
       {NavLists}
       {/* <NavLink
         to="/"

@@ -22,3 +22,47 @@ body {
   font-family: "Noto Sans", sans-serif;
   box-sizing: border-box;
 }
+
+@layer components {
+  .text-accent {
+    @apply text-green-500;
+  }
+  .text-gray {
+    @apply text-gray-200;
+  }
+  .bg-primary {
+    @apply bg-white;
+  }
+  .bg-accent {
+    @apply bg-green-500;
+  }
+  .bg-accent-light {
+    @apply bg-green-100;
+  }
+
+  /* Dark Mode Variables */
+  .text-dark {
+    @apply text-[#dcdbdb];
+  }
+  .bg-dark {
+    /* @apply bg-[#333333]; */
+    @apply bg-black;
+  }
+
+  .bg-dark-light {
+    @apply bg-[#212121d0];
+  }
+
+  .bg-dark-lighter {
+    @apply bg-[#2c2c2c];
+  }
+
+  .border-dark {
+    @apply border-[#f7f7f723];
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply bg-accent text-white rounded-full hover:bg-green-700 duration-150;
+  }
+}

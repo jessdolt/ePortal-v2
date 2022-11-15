@@ -69,10 +69,7 @@ const Login = () => {
           placeholder="Password"
           onChange={handlePasswordChange}
         />
-        <button className="p-2 rounded-3xl bg-emerald-700 text-white font-bold">
-          Log In
-        </button>
-
+        <button className="p-2 btn-primary font-bold">Log In</button>
         <p className="text-gray-400 text-sm mt-8">
           Don't have an account?{" "}
           <Link to="/" className="text-green-600">

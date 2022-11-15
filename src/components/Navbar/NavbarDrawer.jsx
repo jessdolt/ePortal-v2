@@ -14,6 +14,7 @@ import requests from "../../Requests";
 import { userActions } from "../../store/user";
 import { NormalizeText } from "../../utils/NormalizeText";
 import { logOutUser } from "../../services/AuthServices";
+import { Avatar } from "../UI/Avatar";
 
 const NavbarDrawer = ({ open, onClose }) => {
   const { user, token } = useSelector((state) => state.user);
@@ -21,23 +22,10 @@ const NavbarDrawer = ({ open, onClose }) => {
   const navigate = useNavigate();
   const handleLogout = (e) => {
     e.preventDefault();
+    console.log(token);
     logOutUser(token, dispatch, navigate);
-    // instance
-    //   .post(
-    //     requests.requestLogout,
-    //     {},
-    //     {
-    //       headers: { Authorization: `Bearer ${token}` },
-    //     }
-    //   )
-    //   .then((res) => {
-    //     console.log(user);
-    //     if (res.status == 200) {
-    //       dispatch(userActions.userDestroy());
-    //       navigate("/login");
-    //     }
-    //   });
   };
+
   return (
     <div
       className={`overlay fixed h-full w-full top-0 left-0 bg-black/20 transition-all duration-150 z-10 ${
@@ -48,7 +36,7 @@ const NavbarDrawer = ({ open, onClose }) => {
       }}
     >
       <nav
-        className={`h-full origin-left bg-white flex flex-col overflow-scroll duration-250 z-50 transition-all ${
+        className={`h-full origin-left bg-white dark:bg-dark flex flex-col overflow-scroll duration-250 z-50 transition-all ${
           !open ? "w-0" : "w-[270px]"
         }`}
       >
@@ -59,11 +47,7 @@ const NavbarDrawer = ({ open, onClose }) => {
           </button>
         </div>
         <div className="px-4 mt-2">
-          <img
-            src={meImg}
-            alt=""
-            className="h-[37px] w-[37px] rounded-full object-fit cursor-pointer "
-          />
+          <Avatar src={meImg} size="small" />
           <p className="text-lg font-bold leading-none mt-2">
             {NormalizeText(`${user.NickN}`)}
           </p>
@@ -111,7 +95,7 @@ const NavbarDrawer = ({ open, onClose }) => {
           </Dropdown>
           <div className="p-4">
             <button
-              className="p-4 bg-green-500 w-full rounded-3xl text-white mt-auto"
+              className="p-4 w-full mt-auto btn-primary"
               onClick={handleLogout}
             >
               Logout

@@ -2,20 +2,16 @@ import React from "react";
 import meImg from "../../assets/me.png";
 import NavbarDrawer from "../Navbar/NavbarDrawer";
 import useToggle from "../../hooks/useToggle";
+import { Avatar } from "../UI/Avatar";
 
 const Header = ({ title = "Home" }) => {
   const [open, setOpen] = useToggle(false);
 
   return (
     <>
-      <header className="min-h-[53px] flex px-4 items-center fixed w-full max-w-[598px] bg-white">
+      <header className="min-h-[53px] flex px-4 items-center fixed w-full max-w-[598px] bg-white dark:bg-dark">
         <div className="min-w-[52px] sm:hidden max-w-[52px] mr-1">
-          <img
-            src={meImg}
-            alt=""
-            className="h-[37px] w-[37px] rounded-full object-fit cursor-pointer "
-            onClick={() => setOpen(true)}
-          />
+          <Avatar src={meImg} size="small" onClick={() => setOpen(true)} />
         </div>
         <h3 className="font-bold text-xl">{title}</h3>
       </header>
