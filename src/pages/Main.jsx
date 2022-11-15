@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar/Navbar";
@@ -6,7 +7,9 @@ import PageComponents from "../components/PageComponents";
 import Widget from "../components/Widgets";
 
 const Main = () => {
-  const [darkMode, setDarkMode] = useState(true);
+  // const [darkMode, setDarkMode] = useState(true);
+  const { darkMode } = useSelector((state) => state.ui);
+
   return (
     <>
       <div className={`w-full ${darkMode && "dark"}`}>

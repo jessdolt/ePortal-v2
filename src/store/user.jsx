@@ -15,13 +15,11 @@ const userSlice = createSlice({
   initialState: initalUserState,
   reducers: {
     initUser(state, action) {
-      console.log(action);
       state.user = action.payload.user;
       state.token = action.payload.token;
     },
     userDestroy(state) {
       state = initalUserState;
-      console.log(state);
     },
   },
 });

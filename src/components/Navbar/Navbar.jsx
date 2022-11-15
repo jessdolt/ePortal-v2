@@ -5,7 +5,9 @@ import { RiHome7Fill, RiNotification2Line } from "react-icons/ri";
 import { FaRegEnvelope } from "react-icons/fa";
 import { BiSearch } from "react-icons/bi";
 import { Avatar } from "../UI/Avatar";
+import useDarkMode from "../../hooks/useDarkMode";
 const Navbar = () => {
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
   const data = [
     {
       link: "/",
@@ -57,6 +59,14 @@ const Navbar = () => {
           <div className="mt-7 pr-5">
             <button className="btn-primary rounded-full p-4 w-full font-bold hidden xl:block">
               Post
+            </button>
+          </div>
+          <div className="mt-7 pr-5">
+            <button
+              className="btn-primary rounded-full p-4 w-full font-bold hidden xl:block"
+              onClick={toggleDarkMode}
+            >
+              Dark Mode
             </button>
           </div>
         </div>
